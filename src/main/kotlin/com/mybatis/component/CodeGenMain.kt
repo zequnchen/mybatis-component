@@ -14,10 +14,10 @@ fun main() {
     var myBatisCodeGen = MybatisCodeGen()
 
     // 数据库信息
-    myBatisCodeGen.dbUrl ="jdbc:mysql://sr-dev-mysql-master-1.gz.cvte.cn:3306/seewo_easi_minder?useUnicode=true&characterEncoding=UTF8&allowMultiQueries=true&useSSL=false"
-    myBatisCodeGen.dbName ="seewo_easi_minder"
-    myBatisCodeGen.dbUserName = "seewo"
-    myBatisCodeGen.dbUserPassword = "seewo@cvte"
+    myBatisCodeGen.dbUrl =""
+    myBatisCodeGen.dbName =""
+    myBatisCodeGen.dbUserName = ""
+    myBatisCodeGen.dbUserPassword = ""
     // 选择生成表的前缀
     myBatisCodeGen.tablePrefix = "t_"
     // 包含指定表 可多个表同时生成
