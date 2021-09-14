@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.component.vo.TestMapper">
+  <resultMap id="BaseResultMap" type="com.mybatis.component.vo.Test">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="uid" jdbcType="CHAR" property="uid" />
+    <result column="app_package" jdbcType="VARCHAR" property="appPackage" />
+    <result column="app_name" jdbcType="VARCHAR" property="appName" />
+    <result column="app_type" jdbcType="TINYINT" property="appType" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="product_key" jdbcType="VARCHAR" property="productKey" />
+    <result column="operator" jdbcType="CHAR" property="operator" />
+    <result column="up_state" jdbcType="BIT" property="upState" />
+    <result column="online_course" jdbcType="TINYINT" property="onlineCourse" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_deleted" jdbcType="BIT" property="isDeleted" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, uid, app_package, app_name, app_type, icon, product_key, operator, up_state, 
+    online_course, create_time, update_time, is_deleted
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_system_app
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_system_app
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mybatis.component.vo.Test">
+    insert into t_system_app (id, uid, app_package, 
+      app_name, app_type, icon, 
+      product_key, operator, up_state, 
+      online_course, create_time, update_time, 
+      is_deleted)
+    values (#{id,jdbcType=INTEGER}, #{uid,jdbcType=CHAR}, #{appPackage,jdbcType=VARCHAR}, 
+      #{appName,jdbcType=VARCHAR}, #{appType,jdbcType=TINYINT}, #{icon,jdbcType=VARCHAR}, 
+      #{productKey,jdbcType=VARCHAR}, #{operator,jdbcType=CHAR}, #{upState,jdbcType=BIT}, 
+      #{onlineCourse,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{isDeleted,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mybatis.component.vo.Test">
+    insert into t_system_app
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="appPackage != null">
+        app_package,
+      </if>
+      <if test="appName != null">
+        app_name,
+      </if>
+      <if test="appType != null">
+        app_type,
+      </if>
+      <if test="icon != null">
+        icon,
+      </if>
+      <if test="productKey != null">
+        product_key,
+      </if>
+      <if test="operator != null">
+        operator,
+      </if>
+      <if test="upState != null">
+        up_state,
+      </if>
+      <if test="onlineCourse != null">
+        online_course,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=CHAR},
+      </if>
+      <if test="appPackage != null">
+        #{appPackage,jdbcType=VARCHAR},
+      </if>
+      <if test="appName != null">
+        #{appName,jdbcType=VARCHAR},
+      </if>
+      <if test="appType != null">
+        #{appType,jdbcType=TINYINT},
+      </if>
+      <if test="icon != null">
+        #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="productKey != null">
+        #{productKey,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=CHAR},
+      </if>
+      <if test="upState != null">
+        #{upState,jdbcType=BIT},
+      </if>
+      <if test="onlineCourse != null">
+        #{onlineCourse,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mybatis.component.vo.Test">
+    update t_system_app
+    <set>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=CHAR},
+      </if>
+      <if test="appPackage != null">
+        app_package = #{appPackage,jdbcType=VARCHAR},
+      </if>
+      <if test="appName != null">
+        app_name = #{appName,jdbcType=VARCHAR},
+      </if>
+      <if test="appType != null">
+        app_type = #{appType,jdbcType=TINYINT},
+      </if>
+      <if test="icon != null">
+        icon = #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="productKey != null">
+        product_key = #{productKey,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null">
+        operator = #{operator,jdbcType=CHAR},
+      </if>
+      <if test="upState != null">
+        up_state = #{upState,jdbcType=BIT},
+      </if>
+      <if test="onlineCourse != null">
+        online_course = #{onlineCourse,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mybatis.component.vo.Test">
+    update t_system_app
+    set uid = #{uid,jdbcType=CHAR},
+      app_package = #{appPackage,jdbcType=VARCHAR},
+      app_name = #{appName,jdbcType=VARCHAR},
+      app_type = #{appType,jdbcType=TINYINT},
+      icon = #{icon,jdbcType=VARCHAR},
+      product_key = #{productKey,jdbcType=VARCHAR},
+      operator = #{operator,jdbcType=CHAR},
+      up_state = #{upState,jdbcType=BIT},
+      online_course = #{onlineCourse,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
